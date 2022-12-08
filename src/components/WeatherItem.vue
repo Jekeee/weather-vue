@@ -16,12 +16,14 @@ export default {
 </script>
 
 <style>
-.dlt-btn{
+.dlt-btn {
     border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
 }
 
-
-td{
+td {
     text-align: center;
     border: 1px solid #000;
     align-content: center;

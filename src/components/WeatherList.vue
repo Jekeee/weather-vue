@@ -3,8 +3,8 @@
         <tr>
             <th>Удалить</th>
             <th>Страна</th>
-            <th @click="sortMin()">Мин. темперптура</th>
-            <th @click="sortMax()">Макс. темперптура</th>
+            <th @click="sortMin()">Мин. темперптура<img class="sort-logo" src="../img/sort.png" alt="sort-logo" /></th>
+            <th @click="sortMax()">Макс. темперптура<img class="sort-logo" src="../img/sort.png" alt="sort-logo" /></th>
         </tr>
         <WeatherItem v-for="city of cities" v-bind:city="city" v-on:remove-city="removeCity" />
     </table>
@@ -14,10 +14,10 @@
 import WeatherItem from './WeatherItem.vue'
 
 export default {
-    
+
     props: ['cities'],
 
-    
+
     components: {
         WeatherItem
     },
@@ -25,29 +25,53 @@ export default {
         removeCity(id) {
             this.$emit('remove-city', id)
         },
+        //Сортировка от по минимальной температуре в обе стороны
         sortMin() {
-            
-                const sortArr = this.cities.sort((a, b) => a.minT - b.minT);
-                his.$emit('sort-city', sortArr)
-            
-
-            
-           
+            if (this.minSortIndex == 0) {
+                const sortMinArr = this.cities.sort((a, b) => a.minT - b.minT)
+                this.$emit('sort-min-t', sortMinArr)
+                this.minSortIndex = 1
+            } else {
+                const sortMinArr = this.cities.sort((a, b) => b.minT - a.minT);
+                this.minSortIndex = 0
+                this.$emit('sort-min-t', sortMinArr)
+            }
         },
-        sortMax(){
-            const sortArr = this.cities.sort((a, b) => a.maxT - b.maxT);
-                his.$emit('sort-city', sortArr)
+        //Сортировка от по максимальной температуре в обе стороны
+        sortMax() {
+            if (this.minSortIndex == 0) {
+                const sortMaxArr = this.cities.sort((a, b) => a.maxT - b.maxT)
+                this.$emit('sort-max-t', sortMaxArr)
+                this.minSortIndex = 1
+            } else {
+                const sortMinArr = this.cities.sort((a, b) => b.minT - a.maxT)
+                this.minSortIndex = 0
+                this.$emit('sort-max-t', sortMinArr)
+            }
         }
     }
 }
 </script>
 
 <style>
-    th{
-        border: 1px solid #000;
-        padding: 1rem;
-        text-align: center;
-    }
+.sort-logo {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+table {
+    text-align: center;
+}
+
+th {
+    border: 1px solid #000;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
 </style>
 
 
