@@ -5,7 +5,7 @@ import AddCity from './components/AddCity.vue'
 export default {
   data() {
     return {
-      cities: [],
+      cities: [{id: '50.437530.5', title: 'Киев', minT: -1.2, maxT: -0.2, date: '2022-12-08'}],
       date: '',
       minSortIndex: 0,
       maxSortIndex: 0
