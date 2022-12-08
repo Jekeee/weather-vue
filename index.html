@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    
+    <style>
+      /* Кнопка */
+      .dropbtn {
+        background-color: #010202;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        width: 20rem;
+        margin-bottom: 1rem;
+      }
+
+      /* наведение на кнопку */
+      .dropbtn:hover,
+      .dropbtn:focus {
+        background-color: #2a2b30;
+      }
+
+      /* скрыть меню */
+      .dropdown-content {
+        height: 200px;
+        overflow-y: scroll;
+        display: none;
+        position: relative;
+        background-color: #f1f1f1;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+
+      /* текст выпадающего списка */
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      /* внутри цвет при наведении */
+      .dropdown-content a:hover {
+        background-color: #e0f3fa;
+      }
+
+      .show {
+        display: block;
+      }
+
+      #weather {
+        opacity: 0%;
+      }
+
+      
+
+      
+      
+      
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
