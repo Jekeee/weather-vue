@@ -1,11 +1,12 @@
 <script>
 import WeatherList from './components/WeatherList.vue'
 import AddCity from './components/AddCity.vue'
+import { fetchWeather } from './api/fetchApi'
 
 export default {
   data() {
     return {
-      cities: [{id: '50.437530.5', title: 'Киев', minT: -1.2, maxT: -0.2, date: '2022-12-08'}],
+      cities: [{ id: '50.437530.5', title: 'Киев', minT: -1.2, maxT: -0.2, latitude: '50.45', longitude: '30.52' }],
       date: '',
       minSortIndex: 0,
       maxSortIndex: 0
@@ -15,29 +16,18 @@ export default {
     WeatherList,
     AddCity,
   },
-// При первом рендере запрос для получения дат
   mounted() {
-    fetch(`https://api.open-meteo.com/v1/forecast?latitude=50.45&longitude=30.52&daily=temperature_2m_max,temperature_2m_min&timezone=GMT`)
-      .then((response) => {
-        return response.json();
-      })
+    fetchWeather('Киев', 50.45, 30.52)
       .then((data) => {
         this.date = data.daily.time
-
-
       })
   },
   methods: {
     removeCity(id) {
       this.cities = this.cities.filter(c => c.id !== id)
     },
-
-    //Проверка если есть город в списке погоды - не добавлять повторно
     addCity(city) {
-      const el = (element) => {
-        return element.title == city.title
-      }
-      if (this.cities.find(el) == undefined) {
+      if (!this.cities.find(element => element.title === city.title)) {
         this.cities.push(city);
       }
     },
@@ -45,7 +35,6 @@ export default {
       this.cities = data.newCities
 
     },
-
     sortArr(sortArr) {
       this.cities = sortArr;
     }

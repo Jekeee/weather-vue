@@ -25,7 +25,7 @@ export default {
         removeCity(id) {
             this.$emit('remove-city', id)
         },
-        //Сортировка от по минимальной температуре в обе стороны
+
         sortMin() {
             if (this.minSortIndex == 0) {
                 const sortMinArr = this.cities.sort((a, b) => a.minT - b.minT)
@@ -37,7 +37,7 @@ export default {
                 this.$emit('sort-min-t', sortMinArr)
             }
         },
-        //Сортировка от по максимальной температуре в обе стороны
+
         sortMax() {
             if (this.minSortIndex == 0) {
                 const sortMaxArr = this.cities.sort((a, b) => a.maxT - b.maxT)

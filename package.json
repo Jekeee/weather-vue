@@ -7,11 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "predeploy" : "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-
   },
   "dependencies": {
+    "gh-pages": "^4.0.0",
     "vue": "^3.2.45",
     "vue2-datepicker": "^3.11.1"
   },
