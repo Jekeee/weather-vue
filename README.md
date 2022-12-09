@@ -1,3 +1,3 @@
 Test task , vue.
 
-[Demo](https://clever-concha-35076c.netlify.app).
+[Demo](https://vue-weather-project.netlify.app/).
