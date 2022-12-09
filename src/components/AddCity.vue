@@ -11,7 +11,7 @@
                     <a @click="showWeather('46.49', '30.74', 'Одесса')">Одесса</a>
                 </div>
             </div>
-            <select class="form-select" aria-label="Default select example"
+            <select class="form-select"
                 @change="getNewWeather($event.target.value)">
                 <option value="0">{{ date[0] }}</option>
                 <option value="1">{{ date[1] }}</option>
@@ -59,6 +59,7 @@ export default {
                 })
         },
         getNewWeather(i) {
+            this.newCities = []
             for (const city of this.cities) {
                 this.newCities = []
                 const title = city.title;
@@ -83,18 +84,35 @@ export default {
             this.$emit('newCities', {
                 newCities: this.newCities
             })
+            
         }
+        
     }
 }
 
 </script>
 
 <style>
+.dropdown-content{
+    margin-bottom: 1rem;
+}
+.form-select{
+    width: 20%;
+    margin-bottom: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
 .add-city {
     margin-top: 1rem;
 }
 
 .select-item {
     text-align: center;
+}
+.selects-container{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+
 }
 </style>

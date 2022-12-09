@@ -25,6 +25,7 @@ export default {
   methods: {
     removeCity(id) {
       this.cities = this.cities.filter(c => c.id !== id)
+      console.log(this.cities);
     },
     addCity(city) {
       if (!this.cities.find(element => element.title === city.title)) {
@@ -55,6 +56,8 @@ export default {
 #app {
   display: flex;
   flex-direction: column;
+  margin-left: 10%;
+  margin-right: 10%;
 
 }
 
