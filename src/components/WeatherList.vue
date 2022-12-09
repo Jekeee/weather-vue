@@ -1,10 +1,11 @@
 <template>
     <table class="table table-striped">
         <tr>
-            <th>Удалить</th>
+            
             <th>Страна</th>
             <th @click="sortMin()">Мин. темперптура<img class="sort-logo" src="../img/sort.png" alt="sort-logo" /></th>
             <th @click="sortMax()">Макс. темперптура<img class="sort-logo" src="../img/sort.png" alt="sort-logo" /></th>
+            <th>Удалить</th>
         </tr>
         <WeatherItem v-for="city of cities" v-bind:city="city" v-on:remove-city="removeCity" />
     </table>

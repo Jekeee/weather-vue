@@ -1,11 +1,12 @@
 <template>
     <tr>
-        <td><button class="dlt-btn" v-on:click="$emit('remove-city', city.id)">&times;</button></td>
+        
         <td>
             {{ city.title }}
         </td>
         <td>{{ city.minT }}</td>
         <td>{{ city.maxT }}</td>
+        <td><img src="../img/remove.png" alt="logo-del" v-on:click="$emit('remove-city', city.id)" class="dlt-btn"/></td>
     </tr>
 </template>
 
@@ -17,11 +18,12 @@ export default {
 
 <style>
 .dlt-btn {
-    border-radius: 50%;
     width: 3rem;
     height: 3rem;
-    text-align: center;
+    cursor: pointer;
 }
+
+
 
 td {
     text-align: center;
